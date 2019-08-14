@@ -3,16 +3,21 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export class Single extends React.Component {
+export class SinglePlanet extends React.Component {
 	render() {
 		return (
 			<div className="jumbotron">
 				<Context.Consumer>
 					{({ store }) => {
+						console.log("#####", store.planets[0]);
 						return (
-							<h1 className="display-4">
-								This will show the demo element: {store.demo[this.props.match.params.theid].title}
-							</h1>
+							<div className="container">
+								<div className="row">
+									{store.planets[0]
+										? store.planets[this.props.match.params.theid].name
+										: "Loading..."}
+								</div>
+							</div>
 						);
 					}}
 				</Context.Consumer>
@@ -29,6 +34,6 @@ export class Single extends React.Component {
 	}
 }
 
-Single.propTypes = {
+SinglePlanet.propTypes = {
 	match: PropTypes.object
 };
