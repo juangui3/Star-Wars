@@ -12,8 +12,11 @@ const getState = ({ getStore, setStore }) => {
 			getPlanets: () => {
 				//fetch the planets and put them in store
 			},
-			markAsFavorite: () => {
+			markAsFavorite: name => {
+				const store = getStore();
 				//add the character or planet to the fav list
+				console.log(name);
+				setStore({ favorites: store.favorites.concat(name) });
 			},
 			removeFavorites: () => {
 				//remove the character or planet from fav list

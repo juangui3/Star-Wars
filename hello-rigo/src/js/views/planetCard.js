@@ -24,6 +24,11 @@ export class PlanetCard extends React.Component {
 											<a href={"single-planet/" + index} className="btn btn-primary">
 												Learn More!
 											</a>
+											<span
+												onClick={() => actions.markAsFavorite(item.name)}
+												className="float-right">
+												<i className="fa fa-heart"> </i>
+											</span>
 										</div>
 									</div>
 								);
